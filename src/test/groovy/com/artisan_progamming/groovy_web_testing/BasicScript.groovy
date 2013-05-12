@@ -15,5 +15,7 @@ class BasicScript extends GebSpec {
 		
 		then: 'I should see the Geb page'
 		assert $('h1').text() == 'Geb'
+		def level2Headings = $('h2')
+		assert level2Headings*.text()[0..1] == ['Name', 'Role and development']
 	}
 }
