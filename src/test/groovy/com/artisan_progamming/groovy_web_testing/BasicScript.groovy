@@ -15,7 +15,15 @@ class BasicScript extends GebSpec {
 		
 		then: 'I should see the Geb page'
 		assert $('h1').text() == 'Geb'
-		def level2Headings = $('h2')
-		assert level2Headings*.text()[0..1] == ['Name', 'Role and development']
+		assert $("div.vectorTabs a[accesskey='e']").text() == 'Edit'
+		assert $('input', placeholder: 'Search').displayed
+		assert $('a', text: 'Read').text() == 'Read'
+		assert $('a', title: contains('You can edit this page')).text() == 'Edit'
+		assert $('#toc').find('li', 1).text() == '2 Role and development'
+		assert $('li').filter('.toclevel-1').size() == 4
+		assert $('#toc span').not('.tocnumber').size() == 5
+		assert $('h2').has('.mw-headline').size() == 4
+		assert $("h2", 1).text() == 'Name'
+		assert $('h2')*.text()[0..1] == ['Name', 'Role and development']
 	}
 }

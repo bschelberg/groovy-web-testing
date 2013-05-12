@@ -46,7 +46,7 @@
 					</section>
 					<section>
 						<pre><code data-trim>
-assert level2Headings*.text()[0..1] == ['Name', 'Role and development']
+assert $('h2')*.text()[0..1] == ['Name', 'Role and development']
 						</code></pre>
 						<p class="fragment">
 							produces:
@@ -54,7 +54,7 @@ assert level2Headings*.text()[0..1] == ['Name', 'Role and development']
 						<pre class="fragment"><code data-trim>
 org.spockframework.runtime.SpockComparisonFailure: Condition not satisfied:
 
-level2Headings*.text()[0..1] == ['Name', 'Role and development']
+$('h2')*.text()[0..1] == ['Name', 'Role and development']
 |               |     |      |
 |               |     |      false
 |               |     [Contents, Name [edit]]
@@ -67,6 +67,55 @@ level2Headings*.text()[0..1] == ['Name', 'Role and development']
 					</section>
 				</section>
 
+				<section>
+					<section>
+						<img src="images/navigation.jpg" alt="Matchers" />
+						<h2>The jQuery-ish Navigator API</h2>
+					</section>
+					<section>
+						<ul>
+							<li>
+								CSS Selectors
+								<pre><code data-trim>
+$("div.vectorTabs a[accesskey='e']")
+								</code></pre>
+							</li>
+							<li class="fragment">
+								Indexes
+								<pre><code data-trim>
+$("h2", 1)
+								</code></pre>
+							</li>
+							<li class="fragment">
+								Attribute and Text Matching
+								<pre><code data-trim>
+$('input', placeholder: 'Search')
+$('a', text: 'Read')
+$('a', title: contains('edit this page'))
+								</code></pre>
+							</li>
+							<li class="fragment">
+								Finding &amp; Filtering
+								<pre><code data-trim>
+$('#toc').find('li', 1)
+$('li').filter('.toclevel-1')
+$('#toc span').not('.tocnumber')
+$('h2').has('.mw-headline')
+								</code></pre>
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img src="images/matchers.jpg" alt="Matchers" />
+						<h2>Content Matchers</h2>
+						<p>
+							The jQuery-ish Navigator API
+						</p>
+					</section>
+				</section>
 			</div>
 
 		</div>
