@@ -12,7 +12,7 @@ class WikipediaHomePage extends Page {
 		goButton(to: [WikipediaGebPage, WikipediaSpockPage]) { $('input', name: 'go') }
 	}
 	
-	def theySearchFor(String searchValue) {
+	def searchFor(String searchValue) {
 		searchInput = searchValue
 		goButton.click()
 	}
@@ -43,7 +43,7 @@ class SpockSpec extends GebSpec {
 		aUserIsAtTheWikipediaHomePage()
 		
 		when:
-		theySearchFor('Spock')
+		searchFor('Spock')
 		
 		then:
 		heading.text() == 'Spock'
